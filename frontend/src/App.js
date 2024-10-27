@@ -25,7 +25,8 @@ function App() {
         setPrice('');
         setDescription('');
         setDateTime('');
-        console.log('result', json);
+        // getTransactions().then(setTransactions)
+        setTransactions(prev => [...prev, json]);
       });
     });
     console.log(url);
@@ -77,7 +78,7 @@ function App() {
         <button type='submit'>Add new transaction</button>
       </form>
       <div className='transactions'>
-        {(transactions.length > 0) ? transactions.map(transaction => (
+        {(transactions.length > 0) ? [...transactions].reverse().map(transaction => (
           <div className='transaction'>
             <div className='left'>
               <div className='name'>{transaction.name}</div>
