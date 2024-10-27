@@ -20,6 +20,10 @@ function App() {
         datetime})
     }).then(response => {
       response.json().then(json =>{
+        setName('');
+        setPrice('');
+        setDescription('');
+        setDateTime('');
         console.log('result', json);
       });
     });
