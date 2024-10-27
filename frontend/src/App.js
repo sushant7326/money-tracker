@@ -45,9 +45,13 @@ function App() {
     return await response.json();
   }
 
+  let balance = 0;
+  for(const transaction of transactions) balance += transaction.price;
+  balance = balance.toFixed(2);
+
   return (
     <main>
-      <h1>399<span>99</span> </h1>
+      <h1>{balance.split('.')[0]}<span>{balance.split('.')[1]}</span> </h1>
       <form onSubmit={addNewTransaction}>
         <div className='top'>
         <input type='text' 
