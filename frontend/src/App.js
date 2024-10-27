@@ -4,6 +4,7 @@ import './App.css';
 function App() {
 
   const [name, setName] = useState('');
+  const [price, setPrice] = useState('');
   const [datetime, setDateTime] = useState('');
   const [description, setDescription] = useState('');
   function addNewTransaction(ev) {
@@ -12,7 +13,11 @@ function App() {
     fetch(url,{
       method: 'POST',
       headers: {'Content-type':'application/json'},
-      body: JSON.stringify({name,description,datetime})
+      body: JSON.stringify({
+        price,
+        name,
+        description,
+        datetime})
     }).then(response => {
       response.json().then(json =>{
         console.log('result', json);
@@ -25,11 +30,17 @@ function App() {
     <main>
       <h1>$399<span>.99</span> </h1>
       <form onSubmit={addNewTransaction}>
-        <div className='basic'>
-          <input type='text' 
+        <div className='top'>
+        <input type='text' 
                  value={name}
                  onChange={ev => setName(ev.target.value)}
                  placeholder='new samsung tv'/>
+        </div>
+        <div className='basic'>
+          <input type='text' 
+                 value={price}
+                 onChange={ev => setPrice(ev.target.value)}
+                 placeholder='price'/>
           <input type='datetime-local'
                  value={datetime}
                  onChange={ev => setDateTime(ev.target.value)}/>

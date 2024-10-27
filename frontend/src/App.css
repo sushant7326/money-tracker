@@ -35,6 +35,10 @@ form input[type="datetime-loacal"]{
   color: #777;
 }
 
+form .top{
+  margin-bottom: 5px;
+}
+
 form .basic{
   display: flex;
   gap: 5px;
