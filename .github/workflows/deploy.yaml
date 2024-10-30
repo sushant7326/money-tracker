@@ -16,5 +16,5 @@ jobs:
           username: ${{ secrets.AZURE_VM_USERNAME }}
           password: ${{ secrets.AZURE_VM_PASSWORD }}
           script: |
-            cd /money-tracker
+            cd /home/azureuser/money-tracker
             ./deploy.sh
